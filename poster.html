@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Phản Biện Chương 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            padding: 20px;
+        }
+
+        .poster {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 35px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 5px solid #ffd700;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+      .logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+        .header-info h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header-info p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .qr-code {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .title-section {
+            background: linear-gradient(135deg, #d4145a 0%, #fbb03b 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .title-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .title-section h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .title-section p {
+            font-size: 18px;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        .info-bar {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 4px solid #ffd700;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: white;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            background: white;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 20, 90, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #d4145a 0%, #fbb03b 100%);
+        }
+
+        .card-title {
+            color: #d4145a;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4145a 0%, #fbb03b 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(212, 20, 90, 0.3);
+        }
+
+        .card-content {
+            color: #495057;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .card-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .card-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #d4145a 0%, #fbb03b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #fff5f7 0%, #fff9e6 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            font-size: 48px;
+            border: 2px dashed #fbb03b;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 25px 40px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            border-top: 4px solid #ffd700;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4145a 0%, #fbb03b 100%);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 3px;
+            box-shadow: 0 2px 8px rgba(212, 20, 90, 0.3);
+        }
+
+        @media (max-width: 1200px) {
+            .content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .title-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="TVU.png">
+                </div>
+                <div class="header-info">
+                    <h1>KHOA KỸ THUẬT VÀ CÔNG NGHỆ</h1>
+                    <p>Chuyên ngành Công Nghệ Thông Tin</p>
+                    <p>Học phần: Tương tác người & máy | Số tín chỉ: 03</p>
+                    <p>Học kỳ I, Năm học: 2025 - 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <h2>PHẢN BIỆN CHƯƠNG 15</h2>
+            <h2>WORKING WITH HUMAN SUBJECTS</h2>
+            <p>Đạo đức và Phương pháp trong Nghiên cứu Tương tác Người-Máy (HCI)</p>
+        </div>
+
+        <!-- Info Bar -->
+        <div class="info-bar">
+            <div class="info-item">
+                <span class="info-label">Sinh viên:</span>
+                <span>Nguyễn Thành Vinh</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">MSSV:</span>
+                <span>110122206</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Lớp:</span>
+                <span>DA22TTC</span>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content">
+            <!-- Card 1: Giới thiệu -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">📋</div>
+                    Giới thiệu
+                </div>
+                <div class="card-content">
+                    <p><strong>Chương 15</strong> đóng vai trò là kim chỉ nam đạo đức và thực tiễn cho nghiên cứu HCI, tập trung vào:</p>
+                    <ul>
+                        <li><span class="badge">Tuyển chọn</span> đối tượng nghiên cứu</li>
+                        <li><span class="badge">Đạo đức</span> nghiên cứu (IRB/REC)</li>
+                        <li><span class="badge">Chăm sóc</span> đối tượng nghiên cứu</li>
+                    </ul>
+                    <div class="image-placeholder">👥</div>
+                </div>
+            </div>
+
+            <!-- Card 2: Ba trụ cột chính -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">🏛️</div>
+                    Ba Trụ Cột Chính
+                </div>
+                <div class="card-content">
+                    <p><strong>1. Tuyển chọn Đối tượng</strong></p>
+                    <p>• Phân biệt chuyên môn máy tính vs lĩnh vực<br>
+                    • Xác định số lượng mẫu phù hợp</p>
+                    
+                    <p style="margin-top:12px"><strong>2. Đạo đức Nghiên cứu</strong></p>
+                    <p>• Informed consent (sự đồng ý có hiểu biết)<br>
+                    • Vai trò IRB/REC</p>
+                    
+                    <p style="margin-top:12px"><strong>3. Chăm sóc Đối tượng</strong></p>
+                    <p>• Quản lý rủi ro<br>
+                    • Bồi thường hợp lý</p>
+                    <div class="image-placeholder">⚖️</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Điểm mạnh -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">✅</div>
+                    Điểm Mạnh Nổi Bật
+                </div>
+                <div class="card-content">
+                    <p><strong>1. Đạo đức Toàn diện</strong></p>
+                    <p>Phân tích sâu về informed consent, vai trò IRB, và các ví dụ lịch sử (Milgram, Facebook)</p>
+                    
+                    <p style="margin-top:12px"><strong>2. Phân biệt Chuyên môn</strong></p>
+                    <p>Giúp xác định đúng người dùng mục tiêu, tránh bias</p>
+                    
+                    <p style="margin-top:12px"><strong>3. Hướng dẫn Thực tế</strong></p>
+                    <p>Số lượng mẫu linh hoạt: 15-20 người (thực nghiệm) đến 2-3 người (case study)</p>
+                    <div class="image-placeholder">💪</div>
+                </div>
+            </div>
+
+            <!-- Card 4: Hạn chế 1 -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">⚠️</div>
+                    Hạn chế 1: Đa dạng & Công bằng
+                </div>
+                <div class="card-content">
+                    <p><strong>Vấn đề:</strong></p>
+                    <p>Chưa đi sâu vào tuyển chọn người dùng từ bối cảnh văn hóa, xã hội đa dạng (người dùng nước đang phát triển, thiểu số)</p>
+                    
+                    <p style="margin-top:12px"><strong>Gợi ý Cải thiện:</strong></p>
+                    <p>• Tuyển dụng có ý thức (mindful recruiting)<br>
+                    • Hợp tác với tổ chức cộng đồng quốc tế<br>
+                    • Đảm bảo công bằng (justice) trong nghiên cứu</p>
+                    <div class="image-placeholder">🌍</div>
+                </div>
+            </div>
+
+            <!-- Card 5: Hạn chế 2 -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">⚠️</div>
+                    Hạn chế 2: Nghiên cứu Dài hạn
+                </div>
+                <div class="card-content">
+                    <p><strong>Vấn đề:</strong></p>
+                    <p>Khó lấy informed consent toàn diện trong nghiên cứu "in-the-wild". Hiệu ứng Hawthorne làm giảm tính tự nhiên</p>
+                    
+                    <p style="margin-top:12px"><strong>Gợi ý Cải thiện:</strong></p>
+                    <p>• Đạo đức linh hoạt (fluid ethics)<br>
+                    • Người tham gia xem lại & rút lại đồng ý<br>
+                    • Công cụ quản lý quyền riêng tư cho người dùng</p>
+                    <div class="image-placeholder">📊</div>
+                </div>
+            </div>
+
+            <!-- Card 6: Hạn chế 3 -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-icon">⚠️</div>
+                    Hạn chế 3: Nhóm Đặc biệt
+                </div>
+                <div class="card-content">
+                    <p><strong>Vấn đề:</strong></p>
+                    <p>Chưa thảo luận đủ về nghiên cứu từ xa (remote testing) và công nghệ hỗ trợ cho người lớn tuổi, trẻ em, người khuyết tật</p>
+                    
+                    <p style="margin-top:12px"><strong>Gợi ý Cải thiện:</strong></p>
+                    <p>• Sử dụng nền tảng nghiên cứu trực tuyến<br>
+                    • Mở rộng tiếp cận nhóm đối tượng khó<br>
+                    • Tiết kiệm chi phí và tiện lợi hơn</p>
+                    <div class="image-placeholder">♿</div>
+                </div>
+            </div>
+
+            <!-- Card 7: Áp dụng thực tế -->
+            <div class="card" style="grid-column: span 3;">
+                <div class="card-title">
+                    <div class="card-icon">💡</div>
+                    Áp Dụng Thực Tế: Ứng dụng Trợ lý Giọng nói cho Người cao tuổi
+                </div>
+                <div class="card-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px;">
+                        <div>
+                            <p><strong>1. Tuyển chọn Đối tượng:</strong></p>
+                            <p>• Người >65 tuổi, ít kinh nghiệm công nghệ<br>
+                            • 15-20 người (usability) + 2-3 người (case study)<br>
+                            • Tuyển qua trung tâm dưỡng lão, hội người cao tuổi</p>
+                            <div class="image-placeholder" style="height: 120px; margin-top: 15px;">👥</div>
+                        </div>
+                        <div>
+                            <p><strong>2. Đạo đức:</strong></p>
+                            <p>• Nghiên cứu tại nhà/trung tâm cộng đồng<br>
+                            • Biểu mẫu phông lớn, ngôn ngữ đơn giản<br>
+                            • Giải thích rõ rủi ro & quyền rút lui</p>
+                            <div class="image-placeholder" style="height: 120px; margin-top: 15px;">📋</div>
+                        </div>
+                        <div>
+                            <p><strong>3. Bảo mật & Chăm sóc:</strong></p>
+                            <p>• Mã hóa & ẩn danh hóa dữ liệu sức khỏe<br>
+                            • Debriefing sau mỗi buổi<br>
+                            • Bồi thường bằng quà tặng thực tiễn</p>
+                            <div class="image-placeholder" style="height: 120px; margin-top: 15px;">🗣️📱</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Kết luận -->
+            <div class="card" style="grid-column: span 3;">
+                <div class="card-title">
+                    <div class="card-icon">🎯</div>
+                    Kết Luận
+                </div>
+                <div class="card-content">
+                    <p>Chương 15 là nền tảng vững chắc về <span class="highlight">đạo đức và phương pháp luận</span> cho nghiên cứu HCI. Tuy nhiên, cần cập nhật:</p>
+                    <ul>
+                        <li>Giải pháp công nghệ cho nghiên cứu từ xa và longitudinal studies</li>
+                        <li>Thảo luận sâu hơn về <strong>đa dạng</strong> và <strong>công bằng</strong> trong nghiên cứu toàn cầu</li>
+                        <li>Công cụ hỗ trợ cho nhóm đối tượng đặc biệt</li>
+                    </ul>
+                    <p style="margin-top: 15px; text-align: center; font-weight: bold; color: #d4145a; font-size: 18px;">
+                        → Nghiên cứu HCI phải vừa HIỆU QUẢ vừa CÓ TRÁCH NHIỆM và ĐẠO ĐỨC
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Poster nghiên cứu — Phản biện Chương 15 trong HCI | Nguyễn Thành Vinh - 110122206 - DA22TTC
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const poster = document.querySelector(".poster");
+  html2canvas(poster, { scale: 3 }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "poster.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+});
+</script>

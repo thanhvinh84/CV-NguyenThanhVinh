@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 60px; /* Add spacing between buttons */
+        }
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            background: linear-gradient(270deg, #0e8822, transparent, #880e33, transparent, #03e9f4);
+            background-size: 200% 100%;
+            border: 2px solid;
+            font-weight: bold;
+            animation: gradientShift 3s ease-in-out infinite, borderPulse 2s ease-in-out infinite;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes borderPulse {
+            0% { border-color: greenyellow; }
+            50% { border-color: #03e9f4; }
+            100% { border-color: pink; }
+        }
+        .nth-child-1 {
+            color: greenyellow;
+            text-shadow: 0 0 10px #0e8822;
+            border-radius: 3px;
+        }
+        .nth-child-1:hover {
+            color: black;
+            background: greenyellow;
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+            border-color: greenyellow;
+        }
+        .nth-child-2 {
+            color: pink;
+        }
+        .nth-child-2:hover {
+            color: black;
+            background: pink;
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+            border-color: pink;
+            border-radius: 3px;
+        }
+        .nth-child-3 {
+            color: #03e9f4;
+        }
+        .nth-child-3:hover {
+            color: black;
+            background: #03e9f4;
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+            border-color: #03e9f4;
+            border-radius: 3px;
+        }
+        body.dark{
+          background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <button>
+        <div class="nth-child-1">FOLLOW BUTTON</div>
+    </button>
+    <button>
+        <div class="nth-child-2">LIKE BUTTON</div>
+    </button>
+    <button>
+        <div class="nth-child-3">SAVE BUTTON</div>
+    </button>
+    <input type="checkbox" onclick="document.body.classList.toggle('dark')">
+</body>
+</html>

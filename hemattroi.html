@@ -1,0 +1,111 @@
+<body>
+    <style>
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sun{
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            border: none;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 0 30px red;
+        }
+        .xoayquanhmattroi{
+            height: 500px;
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbit 36.525s linear infinite;
+        }
+
+        .traidat{
+           top: 50%;
+           left: 100%;
+           position: absolute;
+           transform: translate(-50%, -50%);
+        }
+        .planer{
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/40px-Rotating_earth_%28large%29.gif') no-repeat center/cover;
+            border: none;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px blue;
+            position: absolute;
+            animation: spin 1s linear infinite;
+        }
+
+        .xoayquanhtraidat{
+            height: 100px;
+            width: 100px;
+            top: 50%;
+            left: 100%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            animation: orbit 2.756s linear infinite;
+        }
+        .soon{
+            background-color: aliceblue;
+            height: 14px;
+            width: 14px;
+            top: 50%;
+            left: 100%;
+            border: none;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 0 20px grey;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes orbit{
+            from{
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        @keyframes spin{
+             from{
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        body.dark{
+            background-color: white;
+           
+        }
+        .checkbox{
+            height: 50px;
+            width: 50px;
+            top: 10%;
+            left: 50%;
+            position: absolute;
+        }
+    </style>
+    <div class="checkbox">
+    <input type="checkbox" onclick="document.body.classList.toggle('dark')">
+    </div>
+    <div class="sun"></div>
+    <div class="xoayquanhmattroi">
+        <div class="traidat">
+            <div class="planer"></div>
+            <div class="xoayquanhtraidat">
+                <div class="soon"></div>
+            </div>
+        </div>
+    </div>
+</body>

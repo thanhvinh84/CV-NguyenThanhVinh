@@ -1,0 +1,37 @@
+<body>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(anh2.jpg) center;
+            background-size: cover;
+            animation: animate 10s linear infinite;
+        }
+
+        @keyframes animate{
+            to{
+                background-position: -200px;
+            }
+        }
+        .list{
+            height: 40px;
+            width: 200px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .list:hover{
+            cursor: pointer;
+            box-shadow: 0 0 20px yellow;
+        }
+
+    </style>
+    <input class="list" list="Ngôn ngữ" placeholder="Select">
+    <datalist id="Ngôn ngữ">
+        <option value="HTML"></option>
+          <option value="CSS"></option>
+            <option value="PHP"></option>
+              <option value="LAVAREL"></option>
+    </datalist>
+</body>
